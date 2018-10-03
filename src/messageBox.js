@@ -1,6 +1,8 @@
-import React from 'react';
+ 
 
-const MessageBox = ({message}) => {
+ import React from 'react';
+
+const MessageBox = ({messages,message}) => {
     return(
         <div class="row message" id="conversation">
 
@@ -9,24 +11,27 @@ const MessageBox = ({message}) => {
               Show Previous Message!
             </div>
           </div>
-
-          <div class="row message-body">
-            <div class="col-sm-12 message-main-receiver">
-              <div class="receiver">
-                <div class="message-text">
-                 Hyy, Its Awesome..!
+          {message &&  message.map((k) => {
+            return (
+              <div class="row message-body">
+                <div class={`col-sm-12 ${k.who === 'me' ? 'message-main-receiver' : 'message-main-sender'}`}>
+                  <div class={`${k.who === 'me' ? 'receiver' : 'sender'}`}>
+                    <div class="message-text">
+                    {k.text}
+                    </div>
+                    <span class="message-time pull-right">
+                      Sun
+                    </span>
+                  </div>
                 </div>
-                <span class="message-time pull-right">
-                  Sun
-                </span>
               </div>
-            </div>
-          </div>
+            ) 
+          })}
 
-          <div class="row message-body">
-            <div class="col-sm-12 message-main-sender">
+          {/* <div class="row message-body">
+            <div class="col-sm-12 message-main-sender ">
               <div class="sender">
-              {message && message.length > 0 && message.map((k) => {
+              {messages && messages.length > 0 && messages.map((k) => {
                 return (<div className="message-text">
                   {k}
                 </div>)
@@ -37,7 +42,7 @@ const MessageBox = ({message}) => {
                 </span>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
     );
 }

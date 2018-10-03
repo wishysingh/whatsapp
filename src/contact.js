@@ -1,8 +1,8 @@
 import React from 'react';
 
-const contact = ({name,last_message,last_message_time, ContactClick}) => {
+const contact = ({phone,name,last_message,last_message_time, ContactClick}) => {
     return(
-    <div class="row sideBar-body" onClick={() => ContactClick(name)}>
+    <div class="row sideBar-body" onClick={() => ContactClick(name,phone)}>
     <div class="col-sm-3 col-xs-3 sideBar-avatar">
       <div class="avatar-icon">
       <img alt='C' src={`https://robohash.org/${name}?10x10`} />

@@ -5,11 +5,12 @@ export function searchContact(text){
     }
 }; 
 
-export function clickContact(text){
+export function clickContact(text,phone){
     
     return {
         type: "Click_Contact",
-        payload: text
+        payload1: text,
+        payload2: phone
     }
 }; 
 
